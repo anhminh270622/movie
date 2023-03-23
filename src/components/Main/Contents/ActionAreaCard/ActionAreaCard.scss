@@ -1,0 +1,55 @@
+.card {
+	width: 150px;
+	min-width: 150px;
+	margin-left: 20px;
+	position: relative;
+
+	.img-wrapper {
+		min-height: calc(150px * 1.5);
+		height: calc(150px * 1.5);
+		.image {
+			img {
+				width: 100%;
+				border-radius: 5px;
+			}
+		}
+		.option {
+		}
+	}
+
+	.content {
+		.consensus {
+			position: absolute;
+			width: 35px;
+			height: 35px;
+			bottom: 116px;
+			left: 10px;
+			.CircularProgressbar-path {
+				stroke: red;
+			}
+			.CircularProgressbar-trail {
+				stroke: gray;
+			}
+			.CircularProgressbar-text {
+				fill: #fff;
+				font-weight: 700;
+				font-size: 30px;
+			}
+			.CircularProgressbar-background {
+				fill: #081c22;
+			}
+		}
+		.title {
+			padding: 26px 10px 12px 10px;
+			h2 {
+				font-weight: 700;
+				color: #000;
+				font-size: 17px;
+				margin-bottom: 0;
+			}
+			p {
+				margin-top: 0;
+			}
+		}
+	}
+}

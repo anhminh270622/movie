@@ -1,5 +1,7 @@
 .header_wrapper {
     overflow: hidden;
+    position: fixed;
+    z-index: 2;
     button{
         border:none;
         outline: none;

@@ -10,12 +10,11 @@ function Top() {
                     <h2>Millions of movies, TV shows and people to discover. Explore now.</h2>
                     <div className="search">
                         <input placeholder="Search for a movie, tv show, person......"></input>
-                        <button>Search</button>
+                        <label>Search</label>
                     </div>
                 </div>
 
             </div>
-            top
         </>
     );
 }
