@@ -1,0 +1,28 @@
+.footer_wrapper {
+	width: 100%;
+	display: flex;
+	padding: 80px 0;
+	justify-content: center;
+	background: #032541;
+	color: #fff;
+	margin-top: 20px;
+	.account {
+		padding: 8px 16px;
+		background: #fff;
+		margin-top: 30px;
+		color: #01b4e4;
+		font-weight: 700;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	ul {
+		font-weight: 600;
+		list-style: none;
+		h3 {
+			cursor: text;
+		}
+		li {
+			cursor: pointer;
+		}
+	}
+}
