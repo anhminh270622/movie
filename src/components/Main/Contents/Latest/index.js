@@ -11,12 +11,6 @@ function Latest() {
             <ScrollMenu>
                 <div className="Latest-container">
                     <CardVideo />
-                    <CardVideo />
-                    <CardVideo />
-                    <CardVideo />
-                    <CardVideo />
-                    <CardVideo />
-                    <CardVideo />
                 </div>
             </ScrollMenu>
 
