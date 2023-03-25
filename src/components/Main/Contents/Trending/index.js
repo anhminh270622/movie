@@ -6,6 +6,8 @@ import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 import axios from "axios";
 import { API_KEY } from "../../../ConstKey";
+// import ReviewTrending from "./ReviewTrending";
+
 function Trending() {
 
     const [trending, setTrending] = useState('');
@@ -18,6 +20,7 @@ function Trending() {
                     return {
                         id: movie.id,
                         title: movie.title,
+                        type: movie.media_type,
                         description: movie.overview,
                         imageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
                         rating: movie.vote_average,
@@ -39,10 +42,14 @@ function Trending() {
                 {trending && trending.map(movie => (
                     <div key={movie.id} className="trending-container">
                         <ActionAreaCard
+                            id={movie.id}
+                            type={movie.type}
                             title={movie.title}
                             imageUrl={movie.imageUrl}
                             releaseDate={movie.releaseDate}
                         />
+
+
                     </div>
                 ))}
             </ScrollMenu>

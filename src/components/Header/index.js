@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import SearchIcon from '@mui/icons-material/Search';
 import ExplicitIcon from '@mui/icons-material/Explicit';
 import { deepOrange, deepPurple } from '@mui/material/colors';
+
 function Header() {
     return (<>
         <div className="header_wrapper">

@@ -18,6 +18,7 @@ function Popular() {
                         title: movie.name,
                         imageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
                         releaseDate: movie.first_air_date,
+                        type: movie.media_type
                     }
                 })
                 setPopular(data)
@@ -34,6 +35,8 @@ function Popular() {
                 {popular && popular.map(movie => (
                     <div key={movie.id} className="Popular-container">
                         <ActionAreaCard
+                            id={movie.id}
+                            type={movie.type}
                             title={movie.title}
                             imageUrl={movie.imageUrl}
                             releaseDate={movie.releaseDate}

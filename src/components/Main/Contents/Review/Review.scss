@@ -1,0 +1,67 @@
+.Review_wrapper {
+	margin-top: 64px;
+	.top {
+		color: #fff;
+		display: flex;
+		padding: 30px 40px;
+		.image {
+			flex: 1;
+			img {
+				width: 300px;
+				height: 450px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+		}
+		.detail {
+			padding-left: 40px;
+			flex: 3;
+			.icon {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 50%;
+				li {
+					list-style: none;
+
+					.consensus {
+						// position: absolute;
+						width: 35px;
+						height: 35px;
+						// bottom: 116px;
+						// left: 10px;
+						.CircularProgressbar-path {
+							stroke: red;
+						}
+						.CircularProgressbar-trail {
+							stroke: gray;
+						}
+						.CircularProgressbar-text {
+							fill: #fff;
+							font-weight: 700;
+							font-size: 30px;
+						}
+						.CircularProgressbar-background {
+							fill: #081c22;
+						}
+					}
+				}
+				.icon-flex {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					p {
+						margin-left: 10px;
+					}
+				}
+			}
+		}
+	}
+
+	.content {
+		.left {
+		}
+		.right {
+		}
+	}
+}
