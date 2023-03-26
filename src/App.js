@@ -2,6 +2,7 @@
 // import Main from './components/Main';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRouter } from './router';
+import "./App.scss"
 function App() {
   return (
     <Router>

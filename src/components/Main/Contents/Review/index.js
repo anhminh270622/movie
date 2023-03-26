@@ -10,28 +10,30 @@ import { useLocation } from 'react-router-dom';
 function Review(props) {
     // const { id } = useParams();
     const location = useLocation();
-    // const { state } = props.location;
+    // const { state } = props.location.state;
+    console.log(location);
+    const { title, imageUrl, releaseDate, id, type, description } = location.state;
+
     // const { id, title, type, imageUrl, releaseDate } = state;
-    const movie = location.state;
-    if (!movie) {
-        return <div>Loading...</div>; // hoặc có thể hiển thị một thông báo lỗi khác
-    }
-    const { id, title, type, description, imageUrl, rating, releaseDate } = movie;
+    // const movie = location.state;
+    // if (!movie) {
+    //     return <div>Loading...</div>; // hoặc có thể hiển thị một thông báo lỗi khác
+    // }
+    // const { id, title, type, description, imageUrl, rating, releaseDate } = movie;
     // const { id, title, type, description, imageUrl, rating, releaseDate } = location.state;
     const percentage = 20;
+    const data = [1, 2, 3, 4, 5, 6];
     return (
         <>
-            <div className="Review_wrapper" style={{ backgroundImage: "url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/26uCzg0yigXqjcM9dCGCDihoXLM.jpg')" }}>
-                <div className="top">
+            <div className="Review_wrapper" >
+                <div className="top" style={{ backgroundImage: "url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/26uCzg0yigXqjcM9dCGCDihoXLM.jpg')" }}>
                     <div className="image">
-                        <img
-                            src="https://www.themoviedb.org/t/p/w220_and_h330_face/h0BMAClkFw4K8Ta4ejp54ZUHrqF.jpg"
-                            alt=""></img>
+                        <img src={imageUrl} alt=""></img>
                     </div>
                     <div className="detail">
-                        <h2>Sát Thủ John Wick: Phần 4</h2>
+                        <h2>{title}</h2>
                         <div>
-                            <p>03/24/2023 (US)</p>
+                            <p>{releaseDate}(US)</p>
                             <p>Phim Hành Động, Phim Gây Cấn, Phim Hình Sự</p>
                             <p>2h 49m</p>
                         </div>
@@ -66,20 +68,45 @@ function Review(props) {
                         <p>Không còn đường lui, duy nhất một lối thoát.</p>
                         <h3>Overview</h3>
                         <p>
-                            Sát Thủ John Wick: Chương 4 là câu chuyện của John Wick (Keanu
-                            Reeves) đã khám phá ra con đường để đánh bại High Table. Nhưng
-                            trước khi có thể kiếm được tự do, Wick phải đối đầu với kẻ thù mới
-                            với những liên minh hùng mạnh trên toàn cầu và những lực lượng
-                            biến những người bạn cũ thành kẻ thù.
+                            {description}
                         </p>
                         <div>
                             <p>Shawn Ryan</p>
-                            <p>Creator{title}</p>
+                            <p>Creator</p>
                         </div>
                     </div>
                 </div>
                 <div className="content">
-                    <div className="left"><img src={imageUrl} alt={title} /></div>
+                    <div className="left">
+                        {data.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    <h2>Top Billed Cast</h2>
+                                    <div className="cast">
+                                        <div className="card">
+                                            <img src="https://www.themoviedb.org/t/p/w138_and_h175_face/4D0PpNI0kmP58hgrwGC3wCjxhnm.jpg" alt="" ></img>
+                                            <div>
+                                                <p>Keanu Reeves</p>
+                                                <p>John Wick</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+
+                        <div><h4>Full Cast & Crew</h4></div>
+                        <div><h4>
+                            Go to Discussions
+                        </h4></div>
+                        <div><h4>
+
+                        </h4></div>
+                        <div><h4>
+
+                        </h4>Go to Discussions</div>
+
+                    </div>
                     <div className="right"></div>
                 </div>
             </div>

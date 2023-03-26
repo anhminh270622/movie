@@ -12,6 +12,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 const actions = [
     { icon: <FileCopyIcon />, name: 'Copy' },
     { icon: <SaveIcon />, name: 'Save' },
@@ -20,7 +21,7 @@ const actions = [
 ];
 
 function ActionAreaCard(props) {
-    const { title, imageUrl, releaseDate, id, type } = props;
+    const { title, imageUrl, releaseDate, id, type, description } = props;
     const percentage = 20;
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -28,15 +29,28 @@ function ActionAreaCard(props) {
     // const mappedValues = [title, imageUrl, releaseDate, id, type].map((value) => {
     //     return <p>{value}</p>;
     //   });
+
+    const navigate = useNavigate();
+    function handleClick() {
+        navigate(`${type === 'movie' ? '/movie' : '/tv'}/${id}`, {
+            state: {
+                title: title,
+                imageUrl: imageUrl,
+                releaseDate: releaseDate,
+                type: type,
+                description: description
+
+            }
+        });
+    }
     return (
         <>
             <div className="card">
                 <div className="img-wrapper">
-                    <Link to={`${type === 'movie' ? '/movie' : '/tv'}/${id}`}>
-                        <div className="image">
-                            <img src={imageUrl} alt=""></img>
-                        </div>
-                    </Link>
+                    <div className="image">
+                        <img onClick={handleClick} src={imageUrl} alt=""></img>
+                    </div>
+
                     <div className="option">
                         <Box sx={{ height: 80, transform: 'translateZ(0px)', flexGrow: 1, bottom: '-15px' }}>
                             <Backdrop open={open} />
@@ -66,21 +80,9 @@ function ActionAreaCard(props) {
                         <CircularProgressbar background={true} value={percentage} text={`${percentage}%`} />
                     </div>
                     <div className="title">
-                        <Link to={{
-                            pathname: `${type === 'movie' ? '/movie' : '/tv'}/${id}`,
-                            state: {
-                                id: id,
-                                title: title,
-                                type: type,
-                                // description: overview,
-                                imageUrl: `https://image.tmdb.org/t/p/w500${imageUrl}`,
-                                releaseDate: releaseDate
-                            }
-                        }} >
-                            <h2>{title}</h2>
-                        </Link>
-                        <p>{type}</p>
-                        <p>{releaseDate}</p>
+                        <h2 onClick={handleClick}>{title}</h2>
+                        {/* <p>{type}</p> */}
+                        <p onClick={handleClick}>{releaseDate}</p>
 
                     </div>
                 </div>

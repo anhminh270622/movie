@@ -47,6 +47,7 @@ function Trending() {
                             title={movie.title}
                             imageUrl={movie.imageUrl}
                             releaseDate={movie.releaseDate}
+                            description={movie.description}
                         />
 
 

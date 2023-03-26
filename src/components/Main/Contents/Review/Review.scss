@@ -59,9 +59,26 @@
 	}
 
 	.content {
+		height: 100px;
+		width: 100%;
+		display: flex;
+
 		.left {
+			display: flex;
+			height: 100%;
+			width: 70%;
+			.cast {
+				.card {
+					img {
+						border-radius: 3px;
+					}
+				}
+			}
 		}
 		.right {
+			height: 100%;
+			width: 30%;
+			border: 1px solid green;
 		}
 	}
 }
