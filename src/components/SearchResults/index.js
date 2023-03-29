@@ -1,6 +1,10 @@
+import "./SearchResults.scss"
 function SearchResults({ location }) {
     return (<>
-        Thành công
+        <div className="SearchResults">
+            Thành công
+        </div>
+
         {/* {location.state.query} */}
     </>);
 }

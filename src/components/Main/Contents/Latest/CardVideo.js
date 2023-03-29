@@ -10,7 +10,7 @@ function CardVideo() {
                 const data = response.data.results.map((movie) => {
                     return {
                         id: movie.id,
-                        imageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+                        imageUrl: `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`,
                         title: movie.title,
                     }
                 })

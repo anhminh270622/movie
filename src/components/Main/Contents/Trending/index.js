@@ -11,10 +11,17 @@ import { API_KEY } from "../../../ConstKey";
 function Trending() {
 
     const [trending, setTrending] = useState('');
+    const [week, setWeek] = useState('day');
+    useEffect(() => {
+        console.log('week', week)
+    }, [week]);
 
+    const handleClick = () => {
+        setWeek(week === 'day' ? 'week' : 'day');
+    }
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`)
+            const response = await axios.get(`https://api.themoviedb.org/3/trending/all/${week}?api_key=${API_KEY}`)
             if (response && response.data && response.data.results) {
                 const data = response.data.results.map(movie => {
                     return {
@@ -31,10 +38,11 @@ function Trending() {
             }
         }
         fetchData()
-    }, [])
+    }, [week])
 
     return (
         <div className="trending">
+            <button onClick={() => handleClick()}>Click</button>
             <div className="trending-top">
                 <h1>Trending</h1>
             </div>

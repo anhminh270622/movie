@@ -7,28 +7,39 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useLocation } from 'react-router-dom';
+import { ScrollMenu } from 'react-horizontal-scrolling-menu';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import People from './People';
+import TopCart from './topCast';
+import Recommendations from './Recommendations';
+import { useState } from 'react';
+import Comment from './Comment';
 function Review(props) {
     // const { id } = useParams();
     const location = useLocation();
+    const [bgrFather, setBgrFather] = useState('');
     // const { state } = props.location.state;
-    console.log(location);
-    const { title, imageUrl, releaseDate, id, type, description } = location.state;
-
-    // const { id, title, type, imageUrl, releaseDate } = state;
-    // const movie = location.state;
-    // if (!movie) {
-    //     return <div>Loading...</div>; // hoặc có thể hiển thị một thông báo lỗi khác
-    // }
-    // const { id, title, type, description, imageUrl, rating, releaseDate } = movie;
-    // const { id, title, type, description, imageUrl, rating, releaseDate } = location.state;
+    const { title, imageUrl, releaseDate, id, type, description } =
+        location.state;
+    // console.log(type);
     const percentage = 20;
-    const data = [1, 2, 3, 4, 5, 6];
     return (
         <>
-            <div className="Review_wrapper" >
-                <div className="top" style={{ backgroundImage: "url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/26uCzg0yigXqjcM9dCGCDihoXLM.jpg')" }}>
+            <div className="Review_wrapper">
+                <People id={id} onImageLoad={setBgrFather} />
+                <div
+                    className="top"
+                    style={{
+                        backgroundImage:
+                            // `url(https://image.tmdb.org/t/p/w500${bgrFather})`,
+                            `url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/26uCzg0yigXqjcM9dCGCDihoXLM.jpg')`
+                    }}>
                     <div className="image">
-                        <img src={imageUrl} alt=""></img>
+                        <img
+                            src={imageUrl}
+                            alt=""></img>
                     </div>
                     <div className="detail">
                         <h2>{title}</h2>
@@ -39,7 +50,7 @@ function Review(props) {
                         </div>
 
                         <div className="icon">
-                            <li className='icon-flex'>
+                            <li className="icon-flex">
                                 <CircularProgressbar
                                     background={true}
                                     value={percentage}
@@ -47,10 +58,10 @@ function Review(props) {
                                     className="consensus"
                                 />
                                 <p>
-                                    User<br />
+                                    User
+                                    <br />
                                     Score
                                 </p>
-
                             </li>
                             <li>
                                 <FormatListBulletedIcon />
@@ -67,9 +78,7 @@ function Review(props) {
                         </div>
                         <p>Không còn đường lui, duy nhất một lối thoát.</p>
                         <h3>Overview</h3>
-                        <p>
-                            {description}
-                        </p>
+                        <p>{description}</p>
                         <div>
                             <p>Shawn Ryan</p>
                             <p>Creator</p>
@@ -78,37 +87,128 @@ function Review(props) {
                 </div>
                 <div className="content">
                     <div className="left">
-                        {data.map((item, index) => {
-                            return (
-                                <div key={index}>
-                                    <h2>Top Billed Cast</h2>
-                                    <div className="cast">
-                                        <div className="card">
-                                            <img src="https://www.themoviedb.org/t/p/w138_and_h175_face/4D0PpNI0kmP58hgrwGC3wCjxhnm.jpg" alt="" ></img>
-                                            <div>
-                                                <p>Keanu Reeves</p>
-                                                <p>John Wick</p>
-                                            </div>
+                        <div className="top-cast">
+                            <h2>Top Billed Cast</h2>
+                            <ScrollMenu>
+                                <TopCart id={id} type={type} />
+                            </ScrollMenu>
+                            <h4>Full Cast & Crew</h4>
+                            <hr />
+                        </div>
+                        <div className="social">
+                            <ul>
+                                <li>
+                                    <h4>Social</h4>
+                                </li>{' '}
+                                <li>
+                                    <h4>Reviews</h4>
+                                </li>{' '}
+                                <li>
+                                    <h4>Discussions</h4>
+                                </li>
+                            </ul>
+                            <div className="social-content">
+                                {/* <div className="review">
+                                    <div className="name">
+                                        <img
+                                            src="https://www.gravatar.com/avatar/5bfcd882a57748ce30d3e9caea9f9c44.jpg?s=64"
+                                            alt=""></img>
+                                        <div className="info">
+                                            <h4>A review by romang</h4>
+                                            <p>Written by romang on March 22, 2023</p>
                                         </div>
                                     </div>
-                                </div>
-                            );
-                        })}
-
-                        <div><h4>Full Cast & Crew</h4></div>
-                        <div><h4>
-                            Go to Discussions
-                        </h4></div>
-                        <div><h4>
-
-                        </h4></div>
-                        <div><h4>
-
-                        </h4>Go to Discussions</div>
-
+                                    <div>
+                                        <div className="comment">
+                                            Check out the full spoiler free review at Sunshine State
+                                            Cineplex.
+                                            https://sunshinestatecineplex.com/2023/03/13/sxsw-2023-john-wick-chapter-4-2023/
+                                            John Wick: Chapter 4 might be a little long, but when it
+                                            is fun, there are few films that can compete with its
+                                            magnetism. Reeves shows why he’s one of the best genre
+                                            actors in the world and pours his heart and soul into a
+                                            soft-spoken performance. Combined with Stahelski’s fight
+                                            sequences, this is sure to become a highly rewatched,
+                                            often quoted classic.
+                                        </div>
+                                    </div>
+                                </div> */}
+                                {/* <Comment id={id} /> */}
+                                <h4>Read All Reviews</h4>
+                            </div>
+                            <hr />
+                        </div>
+                        {/* <div className="media">
+                            <ul>
+                                <li>
+                                    <h4>Media</h4>
+                                </li>
+                                <li>Most Popular</li>
+                                <li> Videos </li>
+                                <li> Backdrops</li>
+                                <li> Posters</li>
+                            </ul>
+                            <div class="video">minh</div>
+                            <hr />
+                        </div> */}
+                        <div className="recommendations">
+                            <h4>Recommendations</h4>
+                            <ScrollMenu>
+                                <Recommendations id={id} type={type} />
+                            </ScrollMenu>
+                        </div>
                     </div>
-                    <div className="right"></div>
+                    <div className="right">
+                        <div className="icon">
+                            <FacebookIcon />
+                            <TwitterIcon />
+                            <InstagramIcon />
+                        </div>
+                        <div>
+                            <p>Status</p>
+                            <p>Released</p>
+                        </div>
+                        <div>
+                            <p>Original Language</p>
+                            <p>English</p>
+                        </div>
+                        <div>
+                            <p>Budget</p>
+                            <p>$460,000,000.00</p>
+                        </div>
+                        <div>
+                            {' '}
+                            <p>Revenue</p>
+                            <p>$2,304,000,000.00</p>
+                        </div>
+                        <hr />
+                        <div className="top-contributors">
+                            <h4>  Top Contributors</h4>
+                            <div className="profile">
+                                <img src="https://www.themoviedb.org/t/p/w45_and_h45_face/yYG7Rhn9HfFpssIMeNiDynvxC14.jpg" alt=""></img>
+                                <div className="coin">
+                                    <p>496</p>
+                                    <p>raze464</p>
+                                </div>
+                            </div>
+                            <div className="profile">
+                                <img src="https://www.themoviedb.org/t/p/w45_and_h45_face/yYG7Rhn9HfFpssIMeNiDynvxC14.jpg" alt=""></img>
+                                <div className="coin">
+                                    <p>496</p>
+                                    <p>raze464</p>
+                                </div>
+                            </div> <div className="profile">
+                                <img src="https://www.themoviedb.org/t/p/w45_and_h45_face/yYG7Rhn9HfFpssIMeNiDynvxC14.jpg" alt=""></img>
+                                <div className="coin">
+                                    <p>496</p>
+                                    <p>raze464</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
         </>
     );

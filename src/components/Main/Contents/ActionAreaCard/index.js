@@ -34,6 +34,7 @@ function ActionAreaCard(props) {
     function handleClick() {
         navigate(`${type === 'movie' ? '/movie' : '/tv'}/${id}`, {
             state: {
+                id: id,
                 title: title,
                 imageUrl: imageUrl,
                 releaseDate: releaseDate,
@@ -45,7 +46,7 @@ function ActionAreaCard(props) {
     }
     return (
         <>
-            <div className="card">
+            <div className="action-card">
                 <div className="img-wrapper">
                     <div className="image">
                         <img onClick={handleClick} src={imageUrl} alt=""></img>

@@ -3,7 +3,7 @@ import MainPage from "../../components/Main"
 import FooterPage from "../../components/Footer";
 function Home() {
     return (<>
-        <HeaderPage />
+        {/* <HeaderPage /> */}
         <MainPage />
         {/* <FooterPage /> */}
     </>);

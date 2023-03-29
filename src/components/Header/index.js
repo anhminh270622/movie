@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import SearchIcon from '@mui/icons-material/Search';
 import ExplicitIcon from '@mui/icons-material/Explicit';
 import { deepOrange, deepPurple } from '@mui/material/colors';
-
+import { Link } from "react-router-dom";
 function Header() {
     return (<>
         <div className="header_wrapper">
@@ -13,7 +13,11 @@ function Header() {
 
             <div className="header_container">
                 <div className="header_left">
-                    <button>PAM TMDT</button>
+                    <button>
+                        <Link to="/">
+                        </Link>
+                        PAM TMDT
+                    </button>
                     <button>Movies</button>
                     <button>TV Shows</button>
                     <button>People</button>
