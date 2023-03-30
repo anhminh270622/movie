@@ -5,7 +5,9 @@ function CardVideo() {
     const [latest, setLatest] = useState('')
     useEffect(() => {
         const fechData = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`)
+            const response = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&append_to_response=videos&language=en-US&page=1`)
+            // const response = await axios.get(`https://api.themoviedb.org/3/movie/latest?api_key=198b2a81e2adaa8be69f99677bf808d0&language=en-US&append_to_response=videos`)
+
             if (response && response.data && response.data.results) {
                 const data = response.data.results.map((movie) => {
                     return {

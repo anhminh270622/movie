@@ -1,11 +1,39 @@
 .trending {
+	padding: 0 40px;
 	.trending-top {
+		display: flex;
+		align-items: center;
+		padding: 0 20px;
+		h1 {
+			padding-right: 20px;
+		}
+		.switch-toggle {
+			border-radius: 30px;
+
+			border: 1px solid #032541;
+
+			button {
+				font-size: 1em;
+				padding: 4px 20px;
+				border-radius: 20px;
+				font-weight: 600;
+				border: none;
+				background: transparent;
+				cursor: pointer;
+			}
+			.active {
+				background-color: #032541;
+				color: #63e7b9;
+			}
+		}
 	}
 	.menu-wrapper {
 		height: 10px;
 		background: red;
+		// padding: 0 40px;
 	}
 	.trending-container {
+		// padding: 0 20px;
 		display: flex;
 		// .action-area-card {
 		// 	flex-shrink: 0;

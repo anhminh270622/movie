@@ -1,5 +1,32 @@
-.Popular-top {
-}
-.Popular-container {
-	display: flex;
+.Popular {
+	padding: 0 40px;
+	.Popular-top {
+		display: flex;
+		align-items: center;
+		padding: 0 20px;
+		h1 {
+			padding-right: 20px;
+		}
+		.switch-toggle {
+			border-radius: 30px;
+
+			border: 1px solid #032541;
+			button {
+				font-size: 1em;
+				padding: 4px 20px;
+				border-radius: 20px;
+				font-weight: 600;
+				border: none;
+				background: transparent;
+				cursor: pointer;
+			}
+			.active {
+				background-color: #032541;
+				color: #63e7b9;
+			}
+		}
+	}
+	.Popular-container {
+		display: flex;
+	}
 }

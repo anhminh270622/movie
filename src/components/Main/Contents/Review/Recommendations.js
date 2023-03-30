@@ -19,12 +19,13 @@ function Recommendations(props) {
                             return {
                                 title: item.title,
                                 imgUrl: item.backdrop_path,
-                                average: item.vote_average
+                                average: (item.vote_average * 10).toFixed(0)
+
                             }
                         } else {
                             return {
                                 imgUrl: item.backdrop_path,
-                                average: item.vote_average,
+                                average: (item.vote_average * 10).toFixed(0),
                                 title: item.name
                             }
                         }

@@ -21,7 +21,7 @@ const actions = [
 ];
 
 function ActionAreaCard(props) {
-    const { title, imageUrl, releaseDate, id, type, description } = props;
+    const { title, imageUrl, releaseDate, rating, id, type, description } = props;
     const percentage = 20;
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -39,8 +39,8 @@ function ActionAreaCard(props) {
                 imageUrl: imageUrl,
                 releaseDate: releaseDate,
                 type: type,
-                description: description
-
+                description: description,
+                rating: rating
             }
         });
     }
@@ -78,7 +78,8 @@ function ActionAreaCard(props) {
                 </div>
                 <div className="content">
                     <div className="consensus">
-                        <CircularProgressbar background={true} value={percentage} text={`${percentage}%`} />
+                        <CircularProgressbar background={true} value={rating} text={Number(rating) !== 0 ? `${rating}%` : 'NR'} />
+
                     </div>
                     <div className="title">
                         <h2 onClick={handleClick}>{title}</h2>

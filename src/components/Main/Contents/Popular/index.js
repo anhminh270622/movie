@@ -7,9 +7,11 @@ import 'react-horizontal-scrolling-menu/dist/styles.css';
 import { API_KEY } from "../../../ConstKey";
 function Popular() {
     const [popular, setPopular] = useState('')
+    const [active, setActive] = useState(true);
+    const moment = require('moment');
     useEffect(() => {
         const fechData = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=1`)
+            const response = await axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${API_KEY}`)
             if (response && response.data && response.data.results) {
 
                 const data = response.data.results.map((movie) => {
@@ -17,8 +19,9 @@ function Popular() {
                         id: movie.id,
                         title: movie.name,
                         imageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-                        releaseDate: movie.first_air_date,
-                        type: movie.media_type
+                        releaseDate: moment(movie.first_air_date).format('MMM DD, YYYY'),
+                        type: movie.media_type,
+                        rating: (movie.vote_average * 10).toFixed(0),
                     }
                 })
                 setPopular(data)
@@ -27,9 +30,16 @@ function Popular() {
         fechData()
     }, [])
     return (<>
-        <div>
+        <div className="Popular">
             <div className="Popular-top">
                 <h1>What's Popular</h1>
+                <div className="switch-toggle " >
+                    <button className="active">
+                        On TV</button>
+                    <button >
+                        In Theaters</button>
+                </div>
+
             </div>
             <ScrollMenu>
                 {popular && popular.map(movie => (
@@ -40,6 +50,7 @@ function Popular() {
                             title={movie.title}
                             imageUrl={movie.imageUrl}
                             releaseDate={movie.releaseDate}
+                            rating={movie.rating}
                         />
                     </div>
                 ))}

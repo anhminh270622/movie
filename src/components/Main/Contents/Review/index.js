@@ -21,10 +21,9 @@ function Review(props) {
     const location = useLocation();
     const [bgrFather, setBgrFather] = useState('');
     // const { state } = props.location.state;
-    const { title, imageUrl, releaseDate, id, type, description } =
+    const { title, imageUrl, releaseDate, id, type, description, rating } =
         location.state;
     // console.log(type);
-    const percentage = 20;
     return (
         <>
             <div className="Review_wrapper">
@@ -53,10 +52,12 @@ function Review(props) {
                             <li className="icon-flex">
                                 <CircularProgressbar
                                     background={true}
-                                    value={percentage}
-                                    text={`${percentage}%`}
+                                    value={rating}
+                                    // text={`${rating !== 0 ? rating : 'HR'}`}
+                                    text={Number(rating) !== 0 ? `${rating}%` : 'NR'}
                                     className="consensus"
                                 />
+
                                 <p>
                                     User
                                     <br />
