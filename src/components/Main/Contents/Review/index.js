@@ -15,30 +15,28 @@ import People from './People';
 import TopCart from './topCast';
 import Recommendations from './Recommendations';
 import { useState } from 'react';
-import Comment from './Comment';
 function Review(props) {
     // const { id } = useParams();
     const location = useLocation();
-    const [bgrFather, setBgrFather] = useState('');
-    // const { state } = props.location.state;
-    const { title, imageUrl, releaseDate, id, type, description, rating } =
+    // const [bgrFather, setBgrFather] = useState('');
+    const { title, imageUrl, releaseDate, id, type, description, rating, background } =
         location.state;
-    // console.log(type);
+    // console.log("--------->", background)
     return (
         <>
             <div className="Review_wrapper">
-                <People id={id} onImageLoad={setBgrFather} />
                 <div
                     className="top"
                     style={{
-                        backgroundImage:
-                            // `url(https://image.tmdb.org/t/p/w500${bgrFather})`,
-                            `url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/26uCzg0yigXqjcM9dCGCDihoXLM.jpg')`
+                        backgroundImage: `url(https://image.tmdb.org/t/p/original${background})`,
+                        backgroundSize: 'cover'
                     }}>
                     <div className="image">
                         <img
-                            src={imageUrl}
-                            alt=""></img>
+                            src={`https://image.tmdb.org/t/p/w500${imageUrl}`}
+                            alt=""
+
+                        ></img>
                     </div>
                     <div className="detail">
                         <h2>{title}</h2>
@@ -55,7 +53,13 @@ function Review(props) {
                                     value={rating}
                                     // text={`${rating !== 0 ? rating : 'HR'}`}
                                     text={Number(rating) !== 0 ? `${rating}%` : 'NR'}
+
                                     className="consensus"
+                                    styles={{
+                                        path: {
+                                            stroke: rating > 69 ? 'green' : rating > 40 ? '#ffff00' : 'red' // màu của phần path
+                                        },
+                                    }}
                                 />
 
                                 <p>
@@ -97,17 +101,7 @@ function Review(props) {
                             <hr />
                         </div>
                         <div className="social">
-                            <ul>
-                                <li>
-                                    <h4>Social</h4>
-                                </li>{' '}
-                                <li>
-                                    <h4>Reviews</h4>
-                                </li>{' '}
-                                <li>
-                                    <h4>Discussions</h4>
-                                </li>
-                            </ul>
+                            <People />
                             <div className="social-content">
                                 {/* <div className="review">
                                     <div className="name">
@@ -159,7 +153,7 @@ function Review(props) {
                             </ScrollMenu>
                         </div>
                     </div>
-                    <div className="right">
+                    {/* <div className="right">
                         <div className="icon">
                             <FacebookIcon />
                             <TwitterIcon />
@@ -206,7 +200,7 @@ function Review(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
 

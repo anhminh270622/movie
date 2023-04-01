@@ -12,7 +12,7 @@ function Recommendations(props) {
             try {
                 const response = await axios.get(`https://api.themoviedb.org/3/${type === 'movie' ? 'movie' : 'tv'}/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
                 if (response && response.data && response.data.results) {
-                    console.log('type:', type, 'id:', id)
+                    // console.log('type:', type, 'id:', id)
 
                     const data = response.data.results.map(item => {
                         if (type === 'movie') {

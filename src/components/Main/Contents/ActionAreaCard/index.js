@@ -21,14 +21,12 @@ const actions = [
 ];
 
 function ActionAreaCard(props) {
-    const { title, imageUrl, releaseDate, rating, id, type, description } = props;
-    const percentage = 20;
+    const { title, imageUrl, releaseDate, rating, id, type, description, background } = props;
+
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    // const mappedValues = [title, imageUrl, releaseDate, id, type].map((value) => {
-    //     return <p>{value}</p>;
-    //   });
+
 
     const navigate = useNavigate();
     function handleClick() {
@@ -40,7 +38,8 @@ function ActionAreaCard(props) {
                 releaseDate: releaseDate,
                 type: type,
                 description: description,
-                rating: rating
+                rating: rating,
+                background: background
             }
         });
     }
@@ -49,7 +48,7 @@ function ActionAreaCard(props) {
             <div className="action-card">
                 <div className="img-wrapper">
                     <div className="image">
-                        <img onClick={handleClick} src={imageUrl} alt=""></img>
+                        <img onClick={handleClick} src={`https://image.tmdb.org/t/p/w500${imageUrl}`} alt=""></img>
                     </div>
 
                     <div className="option">
@@ -78,12 +77,21 @@ function ActionAreaCard(props) {
                 </div>
                 <div className="content">
                     <div className="consensus">
-                        <CircularProgressbar background={true} value={rating} text={Number(rating) !== 0 ? `${rating}%` : 'NR'} />
+                        <CircularProgressbar
+                            background={true}
+                            value={rating}
+                            text={Number(rating) !== 0 ? `${rating}%` : 'NR'}
+                            styles={{
+                                path: {
+                                    stroke: rating > 69 ? 'green' : rating > 40 ? '#ffff00' : 'red' // màu của phần path
+                                },
+                            }}
+                        />
 
                     </div>
                     <div className="title">
                         <h2 onClick={handleClick}>{title}</h2>
-                        {/* <p>{type}</p> */}
+
                         <p onClick={handleClick}>{releaseDate}</p>
 
                     </div>

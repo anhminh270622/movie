@@ -29,7 +29,7 @@ function Trending() {
     }
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/trending/all/${status}?api_key=${API_KEY}`)
+            const response = await axios.get(`https://api.themoviedb.org/3/trending/all/${status}?api_key=${API_KEY}&language=vi`)
             if (response && response.data && response.data.results) {
                 const data = response.data.results.map(movie => {
                     return {
@@ -37,8 +37,8 @@ function Trending() {
                         title: movie.title || movie.name,
                         type: movie.media_type,
                         description: movie.overview,
-                        imageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-
+                        imageUrl: movie.poster_path,
+                        background: movie.backdrop_path,
                         rating: (movie.vote_average * 10).toFixed(0),
                         releaseDate: moment(movie.release_date).format('MMM DD, YYYY'),
 
@@ -75,6 +75,7 @@ function Trending() {
                             releaseDate={movie.releaseDate}
                             description={movie.description}
                             rating={movie.rating}
+                            background={movie.background}
                         />
 
 

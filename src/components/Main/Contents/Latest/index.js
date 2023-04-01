@@ -18,7 +18,7 @@ function Latest() {
 
     useEffect(() => {
         const fechData = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/${status}/top_rated?api_key=${API_KEY}&language=en-US&page=1`)
+            const response = await axios.get(`https://api.themoviedb.org/3/${status}/top_rated?api_key=${API_KEY}&language=vi&page=1`)
             if (response && response.data && response.data.results) {
                 const data = response.data.results.map(item => {
                     return {
@@ -29,12 +29,12 @@ function Latest() {
                         imageUrl: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
                         rating: (item.vote_average * 10).toFixed(0),
                         releaseDate: moment(item.release_date).format('MMM DD, YYYY'),
-
+                        background: item.backdrop_path,
                     }
                 })
+
                 setTopRate(data)
             }
-
         }
         fechData()
     }, [status])
@@ -52,6 +52,7 @@ function Latest() {
         }
         setActive(!active)
     }
+    // console.log(topRate)
     return (<>
         <div className="Latest_wrapper">
             <div className="Latest-top">
@@ -66,23 +67,25 @@ function Latest() {
             </div>
             <ScrollMenu>
                 {topRate && topRate.map((item, index) => {
-
                     return (
-                        <ActionAreaCard
-                            id={item.id}
-                            type={item.type}
-                            title={item.title}
-                            imageUrl={item.imageUrl}
-                            releaseDate={item.releaseDate}
-                            description={item.description}
-                            rating={item.rating}
-                        />
+                        <div className="Latest-container" key={index}>
+                            <ActionAreaCard
+                                id={item.id}
+                                type={item.type}
+                                title={item.title}
+                                imageUrl={item.imageUrl}
+                                releaseDate={item.releaseDate}
+                                description={item.description}
+                                rating={item.rating}
+                                background={item.background}
+                            />
 
+                        </div>
                     )
                 }
                 )}
-                <div className="Latest-container">
-                </div>
+
+
             </ScrollMenu>
 
         </div>

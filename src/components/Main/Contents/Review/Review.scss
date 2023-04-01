@@ -1,9 +1,12 @@
 .Review_wrapper {
 	margin-top: 64px;
+	// height: 600px;
 	.top {
 		color: #fff;
 		display: flex;
 		padding: 30px 40px;
+		height: 550px;
+		align-items: center;
 		.image {
 			flex: 1;
 			img {
@@ -26,8 +29,8 @@
 
 					.consensus {
 						// position: absolute;
-						width: 35px;
-						height: 35px;
+						width: 68px;
+						height: 68px;
 						// bottom: 116px;
 						// left: 10px;
 						.CircularProgressbar-path {
@@ -64,10 +67,10 @@
 		width: 90%;
 		display: flex;
 		margin: 0 auto;
-
+		justify-content: center;
 		.left {
 			height: 100%;
-			width: 70%;
+			width: 90%;
 			padding-right: 30px;
 			.top-cast {
 				.cast {
@@ -205,37 +208,37 @@
 			}
 		}
 
-		.right {
-			height: auto;
-			width: 30%;
-			// border: 1px solid green;
-			.icon {
-				width: 30%;
-				display: flex;
-				justify-content: space-between;
-			}
-			div {
-				margin-bottom: 20px;
-				p {
-					margin: 0;
-					&:first-child {
-						font-weight: bold;
-					}
-				}
-			}
-			.top-contributors {
-				.profile {
-					display: flex;
-					height: 45px;
-					img {
-						width: 45px;
-						height: 45px;
-					}
-					.coin {
-						padding-left: 10px;
-					}
-				}
-			}
-		}
+		// .right {
+		// 	height: auto;
+		// 	width: 30%;
+		// 	// border: 1px solid green;
+		// 	.icon {
+		// 		width: 30%;
+		// 		display: flex;
+		// 		justify-content: space-between;
+		// 	}
+		// 	div {
+		// 		margin-bottom: 20px;
+		// 		p {
+		// 			margin: 0;
+		// 			&:first-child {
+		// 				font-weight: bold;
+		// 			}
+		// 		}
+		// 	}
+		// 	.top-contributors {
+		// 		.profile {
+		// 			display: flex;
+		// 			height: 45px;
+		// 			img {
+		// 				width: 45px;
+		// 				height: 45px;
+		// 			}
+		// 			.coin {
+		// 				padding-left: 10px;
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 }
