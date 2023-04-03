@@ -11,7 +11,7 @@ function Popular() {
     const moment = require('moment');
     useEffect(() => {
         const fechData = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${API_KEY}&language=vi`)
+            const response = await axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${API_KEY}`)
             if (response && response.data && response.data.results) {
 
                 const data = response.data.results.map((movie) => {

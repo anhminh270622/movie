@@ -43,12 +43,14 @@ function Latest() {
             setStatus('movie');
             setMovieButtonDisabled(true);
             setTvButtonDisabled(false);
-
+            console.log('status', status)
 
         } else {
             setStatus('tv');
             setMovieButtonDisabled(false);
             setTvButtonDisabled(true);
+            console.log('status1', status)
+
         }
         setActive(!active)
     }
@@ -78,6 +80,7 @@ function Latest() {
                                 description={item.description}
                                 rating={item.rating}
                                 background={item.background}
+                                status={status}
                             />
 
                         </div>

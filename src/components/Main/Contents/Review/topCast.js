@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_KEY } from "../../../ConstKey/"
 function TopCart(props) {
-    const { id, type } = props;
+    const { id } = props;
+    const type = props.type || 'movie';
+
     const [topCast, setTopCast] = useState('')
     useEffect(() => {
         const fechData = async () => {

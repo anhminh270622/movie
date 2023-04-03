@@ -16,7 +16,7 @@ function SearchResults(props) {
 
     useEffect(() => {
         const fetchData = async () => {
-            const searchAll = await axios.get(`https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&lingu=en-US&page=1&include_adult=false&query=${query}`);
+            const searchAll = await axios.get(`https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=vi&page=1&include_adult=false&query=${query}`);
             if (searchAll && searchAll.data && searchAll.data.results) {
 
                 const results = searchAll.data.results.map((item) => {
@@ -83,7 +83,7 @@ function SearchResults(props) {
                     {searchResults && searchResults.map((item) => {
                         return (
                             <div key={item.id} className="container">
-                                <img src={`https://image.tmdb.org/t/p/w500${item.logo}`} alt={item.logo}></img>
+                                <div className="image"><img src={`https://image.tmdb.org/t/p/w500${item.logo}`} alt={item.logo}></img></div>
                                 <div className="action">
                                     <div className="title">{item.title}</div>
                                     <p className="date">{item.date}</p>

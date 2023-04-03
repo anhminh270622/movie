@@ -45,12 +45,14 @@ function Top() {
 
     const handleSearch = () => {
         setSearch(input);
-        navigate("/search", {
-            state: {
-                query: input,
+        if (input && input.length > 0) {
+            navigate("/search", {
+                state: {
+                    query: input,
+                },
+            });
+        }
 
-            },
-        });
         // console.log('input', input)
 
     };
@@ -64,7 +66,7 @@ function Top() {
                     backgroundImage: `url(${image.imageUrl})`,
                     backgroundSize: 'cover',
                     transition: 'background-image 3s ease',
-                    backgroundPosition: 'center center',
+                    backgroundPosition: 'top -20px center',
                 }}>
                 <div className="top_content">
                     <h1>Welcome.</h1>

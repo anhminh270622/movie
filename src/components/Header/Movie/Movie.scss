@@ -1,0 +1,34 @@
+.movie {
+	margin: 64px auto;
+	width: 90%;
+	h1 {
+		padding: 5px;
+	}
+	.movie-wrapper {
+		display: flex;
+		// grid-template-columns: repeat(7, 1fr);
+		// grid-auto-rows: auto;
+		gap: 15px; /* khoảng cách giữa các ô */
+		flex-wrap: wrap;
+
+		.movie-item {
+			border-radius: 10px;
+			border: 1px solid #ccc;
+			.action-card {
+				margin: 0;
+				width: 189px;
+				.img-wrapper {
+					img {
+						width: 100%;
+						height: 265px;
+					}
+				}
+			}
+		}
+	}
+	.next-page {
+		display: flex;
+		justify-content: center;
+		background-color: red;
+	}
+}

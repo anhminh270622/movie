@@ -21,7 +21,7 @@ const actions = [
 ];
 
 function ActionAreaCard(props) {
-    const { title, imageUrl, releaseDate, rating, id, type, description, background } = props;
+    const { title, imageUrl, releaseDate, rating, id, type, description, background, status } = props;
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -30,7 +30,7 @@ function ActionAreaCard(props) {
 
     const navigate = useNavigate();
     function handleClick() {
-        navigate(`${type === 'movie' ? '/movie' : '/tv'}/${id}`, {
+        navigate(`${type || status === 'movie' ? '/movie' : '/tv'}/${id}`, {
             state: {
                 id: id,
                 title: title,

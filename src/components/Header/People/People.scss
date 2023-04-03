@@ -1,0 +1,32 @@
+.people {
+	margin: 64px auto;
+	width: 90%;
+	h1 {
+		padding: 10px;
+	}
+	.people_wrapper {
+		// height: 250px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+		.item {
+			width: 235px;
+			border: 1px solid #ccc;
+			border-radius: 15px;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
+			p {
+				font-weight: 600;
+				font-size: 1.1em;
+				padding: 8px 10px;
+			}
+		}
+		.next-page {
+			display: flex;
+			justify-content: center;
+			background-color: red;
+		}
+	}
+}

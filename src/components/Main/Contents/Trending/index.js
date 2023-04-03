@@ -29,7 +29,7 @@ function Trending() {
     }
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/trending/all/${status}?api_key=${API_KEY}&language=vi`)
+            const response = await axios.get(`https://api.themoviedb.org/3/trending/all/${status}?api_key=${API_KEY}`)
             if (response && response.data && response.data.results) {
                 const data = response.data.results.map(movie => {
                     return {

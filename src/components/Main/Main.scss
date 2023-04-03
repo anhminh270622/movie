@@ -60,6 +60,12 @@
 					border-radius: 30px;
 					padding: 10px 26px;
 					cursor: pointer;
+					font-weight: 600;
+					opacity: 1;
+					&:hover {
+						color: black;
+						opacity: 0.8;
+					}
 				}
 			}
 		}
