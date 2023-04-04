@@ -46,7 +46,7 @@ function SearchResults(props) {
         fetchData()
 
     }, [query])
-    console.log('countMovie', countMovie, 'countTv', countTv)
+    // console.log('countMovie', countMovie, 'countTv', countTv)
 
     return (<>
         <div className="SearchResults-wrapper">
@@ -60,7 +60,6 @@ function SearchResults(props) {
             <div className="SearchResults">
                 <div className="left">
                     <p> Search Results</p>
-
                     <ul>
                         <li>Movies
                             <span>{countMovie}</span>

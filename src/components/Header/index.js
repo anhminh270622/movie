@@ -10,7 +10,9 @@ import { useNavigate } from 'react-router-dom';
 
 function Header() {
     // const navigate = useNavigate();
-
+    const Loading = () => {
+        window.location.reload();
+    }
     return (<>
         <div className="header_wrapper">
 
@@ -22,10 +24,10 @@ function Header() {
                             PAM TMDT
                         </Link>
                     </button>
-                    <button> <Link to="/movie">Movies </Link></button>
-                    <button> <Link to="/tv">TV Shows </Link></button>
-                    <button> <Link to="/people">People </Link></button>
-                    <button> <Link to="/more">More </Link></button>
+                    <button onClick={Loading}> <Link to="/movie">Movies </Link></button>
+                    <button onClick={Loading}> <Link to="/tv">TV Shows </Link></button>
+                    <button onClick={Loading}> <Link to="/people">People </Link></button>
+                    <button onClick={Loading}> <Link to="/more">More </Link></button>
                 </div>
                 <div className="header_right">
                     <button>

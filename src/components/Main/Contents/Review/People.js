@@ -72,6 +72,7 @@ function People(props) {
     //     });
     // };
     const handleVideoClick = () => {
+
         console.log('thanh cong')
         setImage(false)
         setVideoToggle(true)
