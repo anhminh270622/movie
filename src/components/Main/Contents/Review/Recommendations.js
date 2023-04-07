@@ -1,46 +1,65 @@
 import { useState, useEffect } from 'react';
 
 import axios from 'axios';
-import { API_KEY } from '../../../ConstKey';
-
+import { API_KEY, ERROR_IMG } from '../../../ConstKey';
+import ActionAreaCard from '../ActionAreaCard';
 function Recommendations(props) {
     const { id, type } = props;
-
     const [recommendations, setRecommendations] = useState();
+    const moment = require('moment');
+
     useEffect(() => {
-        const fechData = async () => {
+        const fetchData = async () => {
             try {
                 const response = await axios.get(
                     `https://api.themoviedb.org/3/${type === 'movie' ? 'movie' : 'tv'
                     }/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
                 );
                 if (response && response.data && response.data.results) {
-                    // console.log('type:', type, 'id:', id)
+                    // const data = response.data.results.reduce((acc, item) => {
+                    //     const imageUrl = item.backdrop_path;
+                    //     if (imageUrl) {
+                    //         acc.push({
+                    //             id: item.id,
+                    //             title: item.title || item.name,
+                    //             imageUrl1: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+                    //             imageUrl: `https://image.tmdb.org/t/p/w500${imageUrl}`,
+                    //             average: (item.vote_average * 10).toFixed(0),
+                    //             releaseDate: moment(item.first_air_date).format('MMM DD, YYYY'),
+                    //             type: item.media_type,
+                    //             rating: (item.vote_average * 10).toFixed(0),
+                    //             background: item.backdrop_path,
+                    //             backgroundRecommend: 'recommendations'
+                    //         });
+                    //     }
+                    //     return acc;
+                    // }, []);
 
                     const data = response.data.results.map((item) => {
-                        if (type === 'movie') {
-                            return {
-                                title: item.title,
-                                imgUrl: item.backdrop_path,
-                                average: (item.vote_average * 10).toFixed(0),
-                            };
-                        } else {
-                            return {
-                                imgUrl: item.backdrop_path,
-                                average: (item.vote_average * 10).toFixed(0),
-                                title: item.name,
-                            };
-                        }
+                        const imageUrl = item.backdrop_path;
+
+                        return {
+                            id: item.id,
+                            title: item.title || item.name,
+                            imageUrl1: item.poster_path,
+                            imageUrl: imageUrl,
+                            average: (item.vote_average * 10).toFixed(0),
+                            releaseDate: moment(item.first_air_date).format('MMM DD, YYYY'),
+                            type: item.media_type,
+                            rating: (item.vote_average * 10).toFixed(0),
+                            background: item.backdrop_path,
+                            backgroundRecommend: 'recommendations',
+                        };
                     });
                     setRecommendations(data);
                 }
             } catch (error) {
-                console.log('error', error);
+                console.log('Error fetching recommendations:', error);
             }
         };
-        fechData();
+        fetchData();
     }, []);
-    // console.log('Recommendations', recommendations)
+
     return (
         <>
             <div className="recommendations-wrapper">
@@ -49,19 +68,21 @@ function Recommendations(props) {
                         <div
                             className="recommendations-card"
                             key={index}>
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500${item.imgUrl}`}
-                                alt=""></img>
-                            <div className="title">
-                                <p>{item.title}</p>
-                                <p>{item.average}%</p>
-                            </div>
+                            <ActionAreaCard
+                                id={item.id}
+                                imageUrl1={item.imageUrl1}
+                                imageUrl={item.imageUrl}
+                                title={item.title}
+                                background={item.background}
+                                rating={item.rating}
+                                releaseDate={item.releaseDate}
+                                backgroundRecommend={item.backgroundRecommend}
+                                average={item.average}
+                            />
                         </div>
                     ))
                 ) : (
-                    <div>
-                        no data
-                    </div>
+                    <div>No data</div>
                 )}
             </div>
         </>

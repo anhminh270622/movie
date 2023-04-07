@@ -18,7 +18,7 @@ function Latest() {
 
     useEffect(() => {
         const fechData = async () => {
-            const response = await axios.get(`https://api.themoviedb.org/3/${status}/top_rated?api_key=${API_KEY}&language=vi&page=1`)
+            const response = await axios.get(`https://api.themoviedb.org/3/${status}/top_rated?api_key=${API_KEY}&page=1`)
             if (response && response.data && response.data.results) {
                 const data = response.data.results.map(item => {
                     return {
@@ -26,7 +26,7 @@ function Latest() {
                         title: item.title || item.name,
                         type: item.media_type,
                         description: item.overview,
-                        imageUrl: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+                        imageUrl: item.poster_path,
                         rating: (item.vote_average * 10).toFixed(0),
                         releaseDate: moment(item.release_date).format('MMM DD, YYYY'),
                         background: item.backdrop_path,

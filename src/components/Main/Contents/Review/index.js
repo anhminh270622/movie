@@ -14,7 +14,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import People from './People';
 import TopCart from './topCast';
 import Recommendations from './Recommendations';
-import { useState } from 'react';
+import { ERROR_IMG } from '../../../ConstKey';
 function Review(props) {
     // const { id } = useParams();
     const location = useLocation();
@@ -32,11 +32,9 @@ function Review(props) {
                         backgroundSize: 'cover',
                     }}>
                     <div className='top-content'>
-
-
                         <div className="image">
                             <img
-                                src={`https://image.tmdb.org/t/p/w500${imageUrl}`}
+                                src={imageUrl !== null ? `https://image.tmdb.org/t/p/w500${imageUrl}` : ERROR_IMG}
                                 alt=""
                             ></img>
                         </div>

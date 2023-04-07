@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { API_KEY } from "../../../ConstKey/"
+import { API_KEY, ERROR_IMG } from "../../../ConstKey/"
 function TopCart(props) {
     const { id } = props;
     const type = props.type || 'movie';
@@ -26,7 +26,7 @@ function TopCart(props) {
                         className="card"
                         key={index}>
                         <img
-                            src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
+                            src={item.profile_path !== null ? `https://image.tmdb.org/t/p/w500${item.profile_path}` : ERROR_IMG}
                             alt=""
                         ></img>
                         <div className="text">

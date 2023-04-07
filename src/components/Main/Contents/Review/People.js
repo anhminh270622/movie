@@ -5,6 +5,7 @@ import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 import ReactLoading from 'react-loading';
 import LinearProgress from '@mui/material/LinearProgress';
+
 function People(props) {
     const [loading, setLoading] = useState(false);
     const { id, type } = props;
@@ -15,8 +16,9 @@ function People(props) {
     const [videoKey, setVideoKey] = useState('');
     const [videoToggle, setVideoToggle] = useState(true)
     const [image, setImage] = useState(false)
-    const [stateImg, setStateImg] = useState('backdrops')
+    const [stateImg, setStateImg] = useState('')
     const [isLoading, setIsLoading] = useState(false);
+    const [active, setActive] = useState(false)
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
@@ -58,31 +60,20 @@ function People(props) {
         // fetchVideo();
         fetchData();
     }, [id]);
-    // console.log('videoKey', videoKey)
-    // openModal = (video) => {
-    //     this.setState({
-    //         selectedVideo: video,
-    //         isModalOpen: true
-    //     });
-    // };
 
-    // closeModal = () => {
-    //     this.setState({
-    //         isModalOpen: false
-    //     });
-    // };
     const handleVideoClick = () => {
 
         console.log('thanh cong')
         setImage(false)
         setVideoToggle(true)
-        // setLoading(true);setIsLoading(true)
+        setStateImg('')
+
     }
     const handleBackdropsClick = () => {
         setVideoToggle(false)
         setImage(true)
         setStateImg('backdrops')
-        console.log('thanh cong', stateImg)
+        // console.log('thanh cong', stateImg)
         setIsLoading(true)
 
     }
@@ -90,7 +81,7 @@ function People(props) {
         setVideoToggle(false)
         setImage(true)
         setStateImg('posters')
-        console.log('thanh cong posters', stateImg)
+        // console.log('thanh cong posters', stateImg)
         setIsLoading(true)
     }
     return (
@@ -100,17 +91,17 @@ function People(props) {
                     <li>
                         <h4>Media</h4>
                     </li>
-                    <li onClick={handleVideoClick}>
+                    <li onClick={handleVideoClick} className={videoToggle ? 'active' : ''}>
                         <h4>
                             Videos <span>{video}</span>
                         </h4>
                     </li>
-                    <li onClick={handleBackdropsClick}>
+                    <li onClick={handleBackdropsClick} className={stateImg === 'backdrops' ? 'active' : ''}>
                         <h4>
                             Backdrops<span>{backdrops}</span>
                         </h4>
                     </li>
-                    <li onClick={handlePostersClick}>
+                    <li onClick={handlePostersClick} className={stateImg === 'posters' ? 'active' : ''}>
                         <h4>
                             Posters<span>{posters}</span>
                         </h4>

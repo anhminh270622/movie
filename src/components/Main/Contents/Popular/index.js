@@ -18,7 +18,7 @@ function Popular() {
                     return {
                         id: movie.id,
                         title: movie.name,
-                        imageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+                        imageUrl: movie.poster_path,
                         releaseDate: moment(movie.first_air_date).format('MMM DD, YYYY'),
                         type: movie.media_type,
                         rating: (movie.vote_average * 10).toFixed(0),
