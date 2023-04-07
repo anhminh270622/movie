@@ -9,6 +9,7 @@ export const publicRouter = [
     { path: "", component: <Home /> },
     { path: "/search", component: <SearchResults /> },
     // { path: "/movie/:id-:title", component: <ReviewTrending /> }
+    { path: "/search/:type/:id", component: <ReviewTrending /> },
     { path: "/movie/:id", component: <ReviewTrending /> },
     { path: "/tv/:id", component: <ReviewTrending /> },
     { path: "/people", component: <People /> },

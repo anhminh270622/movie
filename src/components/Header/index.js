@@ -9,7 +9,7 @@ import { animateScroll } from 'react-scroll';
 function Header() {
     const scrollToTop = () => {
         animateScroll.scrollToTop();
-        console.log('Scroll to top thành công')
+        // console.log('Scroll to top thành công')
     }
     return (<>
         <div className="header_wrapper">

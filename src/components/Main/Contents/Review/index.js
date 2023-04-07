@@ -68,16 +68,16 @@ function Review(props) {
                                         Score
                                     </p>
                                 </li>
-                                <li>
+                                <li className="icon-menu">
                                     <FormatListBulletedIcon />
                                 </li>
-                                <li>
+                                <li className="icon-love">
                                     <FavoriteIcon />
                                 </li>
-                                <li>
+                                <li className="icon-book">
                                     <BookmarkIcon />
                                 </li>
-                                <li>
+                                <li className="icon-start">
                                     <StarIcon />
                                 </li>
                             </div>

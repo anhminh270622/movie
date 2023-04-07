@@ -39,6 +39,7 @@
 					height: 450px;
 					border-radius: 15px;
 					cursor: pointer;
+					background: #ccc;
 				}
 			}
 		}
@@ -82,6 +83,27 @@
 					justify-content: space-between;
 					p {
 						margin-left: 10px;
+					}
+				}
+				.icon-menu,
+				.icon-love,
+				.icon-book,
+				.icon-start {
+					cursor: pointer;
+				}
+				.icon-love {
+					&:hover svg {
+						color: rgb(199, 54, 170);
+					}
+				}
+				.icon-book {
+					&:hover svg {
+						color: red;
+					}
+				}
+				.icon-start {
+					&:hover svg {
+						color: rgb(230, 238, 14);
 					}
 				}
 			}
@@ -296,6 +318,7 @@
 									width: 100%;
 									h2 {
 										margin: 0;
+										font-weight: normal;
 									}
 									p {
 										margin: 0;

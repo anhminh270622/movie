@@ -11,6 +11,7 @@ import Stack from '@mui/material/Stack';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 // import { Padding } from '@mui/icons-material';
+import { ERROR_IMG } from "../../ConstKey";
 import "./Tv.scss"
 function Tv() {
     const [tv, setTv] = useState('')
@@ -46,7 +47,7 @@ function Tv() {
                 return {
                     id: item.id,
                     title: item.title || item.name,
-                    imageUrl: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+                    imageUrl: item.poster_path,
                     releaseDate: moment(item.first_air_date).format('MMM DD, YYYY'),
                     type: 'tv',
                     rating: (item.vote_average * 10).toFixed(0),

@@ -1,14 +1,21 @@
 import "./Footer.scss"
 import Logo from '../../image/logo.png'
 import ScrollToTopButton from "../ScrollToTopButton";
-
+import { useNavigate } from "react-router-dom";
+import { animateScroll } from 'react-scroll';
 function Footer() {
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate('/')
+        animateScroll.scrollToTop({ duration: 900 });
+
+    }
     return (<>
         <div className="footer_wrapper">
             <div className="footer_content">
                 <div className="logo">
-                    <img src={Logo} alt="logo" />
-                    <div className="account">Hi anhminh370622!</div>
+                    <img onClick={handleClick} src={Logo} alt="logo" />
+                    <div className="account">Hi anhminh270622!</div>
                 </div>
                 <div>
                     <ul>
