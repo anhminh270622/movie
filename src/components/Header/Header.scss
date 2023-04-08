@@ -98,3 +98,26 @@
 		}
 	}
 }
+@media only screen and (max-width: 600px) {
+	.header_container {
+		width: 90%;
+
+		.header_left {
+			button {
+				&:first-child {
+					margin-left: 50px;
+				}
+			}
+		}
+		.header_right {
+			button {
+				display: none;
+			}
+		}
+	}
+	/* Thiết lập kiểu cho màn hình điện thoại di động */
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+	/* Thiết lập kiểu cho màn hình máy tính bảng */
+}

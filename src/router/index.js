@@ -5,6 +5,7 @@ import People from "../pages/People"
 import Movie from "../pages/Movie"
 import Tv from "../pages/Tv"
 import NotFound from "../pages/404NotFound"
+import HeaderSearch from "../pages/HeaderSearch"
 export const publicRouter = [
     { path: "", component: <Home /> },
     { path: "/search", component: <SearchResults /> },
@@ -15,5 +16,7 @@ export const publicRouter = [
     { path: "/people", component: <People /> },
     { path: "/movie", component: <Movie /> },
     { path: "/tv", component: <Tv /> },
+    { path: "/movie/search/:id", component: <HeaderSearch /> },
+
     { path: "*", component: <NotFound /> }
 ]

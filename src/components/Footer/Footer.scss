@@ -37,3 +37,26 @@
 		}
 	}
 }
+@media only screen and (max-width: 600px) {
+	.footer_wrapper {
+		.footer_content {
+			font-size: 0.6rem;
+			padding: 40px 10px;
+			.logo {
+				img {
+					width: 100px;
+					height: 100px;
+				}
+			}
+			.account {
+				margin-top: 15px;
+			}
+			ul {
+				padding-left: 10px;
+				h3 {
+					font-size: 0.7rem;
+				}
+			}
+		}
+	}
+}

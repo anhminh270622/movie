@@ -67,6 +67,7 @@ function Top() {
                     backgroundSize: 'cover',
                     transition: 'background-image 3s ease',
                     backgroundPosition: 'top -20px center',
+                    backgroundRepeat: 'no-repeat'
                 }}>
                 <div className="top_content">
                     <h1>Welcome.</h1>

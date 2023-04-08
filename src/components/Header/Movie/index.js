@@ -11,6 +11,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Padding } from '@mui/icons-material';
 import { animateScroll } from 'react-scroll';
+import { useNavigate, Link } from "react-router-dom";
 function Movie() {
     const [movie, setMovie] = useState('')
     const [page, setPage] = useState(1);
@@ -24,7 +25,7 @@ function Movie() {
                     return {
                         id: movie.id,
                         title: movie.title,
-                        imageUrl: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+                        imageUrl: movie.poster_path,
                         releaseDate: moment(movie.first_air_date).format('MMM DD, YYYY'),
                         type: 'movie',
                         rating: (movie.vote_average * 10).toFixed(0),
@@ -37,25 +38,33 @@ function Movie() {
         }
         fechData()
     }, [page])
+    const navigate = useNavigate()
     const handleSearch = async (event, value) => {
         setInput(event.target.value);
-        const responseSearch = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${input}`)
-        if (responseSearch && responseSearch.data && responseSearch.data.results) {
-            const searchResult = responseSearch.data.results.map((item) => {
-                return {
-                    id: item.id,
-                    title: item.title,
-                    imageUrl: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
-                    releaseDate: moment(item.first_air_date).format('MMM DD, YYYY'),
-                    type: 'movie',
-                    rating: (item.vote_average * 10).toFixed(0),
-                    background: item.backdrop_path,
-                }
-            })
-            setSearch(searchResult)
-        }
 
+        if (input && input.length > 0) {
+            const responseSearch = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${input}`)
+            if (responseSearch && responseSearch.data && responseSearch.data.results) {
+                const searchResult = responseSearch.data.results.map((item) => {
+                    return {
+                        id: item.id,
+                        title: item.title,
+                        imageUrl: item.poster_path,
+                        releaseDate: moment(item.first_air_date).format('MMM DD, YYYY'),
+                        type: 'movie',
+                        rating: (item.vote_average * 10).toFixed(0),
+                        background: item.backdrop_path,
+
+                    }
+                })
+                setSearch(searchResult)
+                // setInput('')
+            }
+        }
     }
+    // useEffect(() => {
+    //     handleSearch()
+    // }, [input])
     const handleChangePage = (event, value) => {
         setPage(value);
         console.log('value', value);
@@ -67,12 +76,13 @@ function Movie() {
             <div className="search-wrapper">
                 <h1>Movie</h1>
                 <div className="search">
-                    <input type="text" className="input" placeholder="search" value={input} onChange={(e) => setInput(e.target.value)}></input>
+                    <input type="text" className="input" placeholder="Search movies" value={input} onChange={(e) => setInput(e.target.value)}></input>
                     <svg onClick={handleSearch} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
 
                 </div>
+
             </div>
 
             <div className="movie-wrapper">
@@ -107,7 +117,6 @@ function Movie() {
                                     background={item.background}
                                     releaseDate={item.releaseDate}
                                 /></div>
-
                         )
                     })}
                 </div>

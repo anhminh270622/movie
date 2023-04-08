@@ -10,7 +10,7 @@
 		}
 		.search {
 			display: flex;
-			width: 25%;
+			width: 40%;
 			align-items: center;
 			input {
 				width: 100%;
@@ -63,5 +63,20 @@
 		display: flex;
 		justify-content: center;
 		background-color: red;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.tv {
+		.search-wrapper {
+			.search {
+				input {
+					padding-right: 20px;
+					margin: 0;
+				}
+			}
+		}
+		.tv-wrapper {
+			gap: 10px;
+		}
 	}
 }

@@ -24,13 +24,13 @@
 			width: 85%;
 			h1 {
 				font-weight: 700;
-				font-size: 48px;
+				font-size: 3rem;
 				margin: 0;
 			}
 
 			h2 {
 				font-weight: 600;
-				font-size: 32px;
+				font-size: 2rem;
 				margin-top: 0;
 			}
 
@@ -74,5 +74,69 @@
 	.content_wrapper {
 		width: 100%;
 		margin: 0 auto;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.main_wrapper {
+		.top_wrapper {
+			.top_content {
+				h1 {
+					// display: none;
+					// color: red;
+					font-size: 2rem;
+				}
+				h2 {
+					font-size: 1rem;
+				}
+				.search {
+					input::placeholder {
+						font-size: 0.8rem;
+					}
+					label {
+						font-size: 0.8rem;
+						padding: 12px 26px;
+					}
+				}
+			}
+		}
+		.content_wrapper {
+			.trending {
+				padding: 0;
+				.trending-top {
+					.switch-toggle {
+						button {
+							padding: 6px 15px;
+							font-size: 0.8rem;
+						}
+					}
+				}
+			}
+			.Latest_wrapper {
+				padding: 0;
+
+				.Latest-top {
+					.switch-toggle {
+						display: flex;
+						button {
+							padding: 6px 15px;
+							font-size: 0.8rem;
+						}
+					}
+				}
+			}
+			.Popular {
+				padding: 0;
+
+				.Popular-top {
+					.switch-toggle {
+						button {
+							padding: 0 15px;
+							height: 100%;
+							font-size: 0.8rem;
+						}
+					}
+				}
+			}
+		}
 	}
 }

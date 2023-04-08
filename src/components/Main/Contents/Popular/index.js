@@ -37,8 +37,8 @@ function Popular() {
                 <div className="switch-toggle " >
                     <button className="active">
                         On TV</button>
-                    <button >
-                        In Theaters</button>
+                    {/* <button >
+                        In Theaters</button> */}
                 </div>
 
             </div>
