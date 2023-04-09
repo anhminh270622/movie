@@ -30,6 +30,7 @@ function Movie() {
                         type: 'movie',
                         rating: (movie.vote_average * 10).toFixed(0),
                         background: movie.backdrop_path,
+                        description: movie.overview
                     }
                 })
                 setMovie(data)
@@ -54,6 +55,7 @@ function Movie() {
                         type: 'movie',
                         rating: (item.vote_average * 10).toFixed(0),
                         background: item.backdrop_path,
+                        description: item.overview
 
                     }
                 })
@@ -97,6 +99,7 @@ function Movie() {
                                 rating={item.rating}
                                 background={item.background}
                                 releaseDate={item.releaseDate}
+                                description={item.description}
                             /></div>
                     )
                 })}
@@ -116,6 +119,7 @@ function Movie() {
                                     rating={item.rating}
                                     background={item.background}
                                     releaseDate={item.releaseDate}
+                                    description={item.description}
                                 /></div>
                         )
                     })}

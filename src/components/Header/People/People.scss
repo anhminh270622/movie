@@ -7,6 +7,7 @@
 		align-items: center;
 		h1 {
 			padding: 5px;
+			font-size: 1.7rem;
 		}
 		.search {
 			display: flex;
@@ -37,13 +38,13 @@
 		}
 	}
 	.people-wrapper {
-		// height: 250px;
-		// display: flex;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 15px;
+		display: grid;
+		// grid-template-columns: repeat(6, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		grid-auto-rows: minmax(100px, auto);
+		gap: 15px; /* khoảng cách giữa các ô */
 		.item {
-			width: 235px;
+			width: 100%;
 			border: 1px solid #ccc;
 			border-radius: 15px;
 			overflow: hidden;
@@ -76,8 +77,38 @@
 		}
 		.people-wrapper {
 			gap: 10px;
+			display: grid;
+			// grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			// grid-auto-rows: minmax(100px, auto);
 			.item {
-				width: 190px;
+				width: 100%;
+				img {
+					width: 100%;
+					height: 253px;
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width: 601px) and (max-width: 991px) {
+	.people {
+		.search-wrapper {
+			.search {
+				input {
+					padding-right: 20px;
+					margin: 0;
+				}
+			}
+		}
+		.people-wrapper {
+			gap: 10px;
+			display: grid;
+			// grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			grid-auto-rows: minmax(100px, auto);
+			.item {
+				width: 100%;
 				img {
 					width: 100%;
 					height: 253px;

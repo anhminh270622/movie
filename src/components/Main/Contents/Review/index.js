@@ -27,9 +27,13 @@ function Review(props) {
             <div className="Review_wrapper">
                 <div
                     className="top"
+
                     style={{
                         backgroundImage: `url(https://image.tmdb.org/t/p/original${background})`,
                         backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center center',
+
                     }}>
                     <div className='top-content'>
                         <div className="image">
@@ -42,8 +46,8 @@ function Review(props) {
                             <h2>{title}</h2>
                             <div>
                                 <p>{releaseDate}(US)</p>
-                                <p>Phim Hành Động, Phim Gây Cấn, Phim Hình Sự</p>
-                                <p>2h 49m</p>
+                                {/* <p>Phim Hành Động, Phim Gây Cấn, Phim Hình Sự</p> */}
+                                {/* <p>2h 49m</p> */}
                             </div>
 
                             <div className="icon">
@@ -81,13 +85,13 @@ function Review(props) {
                                     <StarIcon />
                                 </li>
                             </div>
-                            <p>Không còn đường lui, duy nhất một lối thoát.</p>
+                            {/* <p>Không còn đường lui, duy nhất một lối thoát.</p> */}
                             <h3>Overview</h3>
                             <p>{description}</p>
-                            <div>
+                            {/* <div>
                                 <p>Shawn Ryan</p>
                                 <p>Creator</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -168,7 +172,7 @@ function Review(props) {
 
                 </div>
 
-            </div>
+            </div >
         </>
     );
 }

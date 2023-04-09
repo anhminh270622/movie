@@ -63,7 +63,7 @@ function People(props) {
 
     const handleVideoClick = () => {
 
-        console.log('thanh cong')
+        // console.log('thanh cong')
         setImage(false)
         setVideoToggle(true)
         setStateImg('')
@@ -136,6 +136,7 @@ function People(props) {
 
 
                 </div>
+
             </div>
         </>
     );

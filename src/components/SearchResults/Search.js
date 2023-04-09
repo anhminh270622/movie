@@ -37,7 +37,7 @@ function Search(props) {
             <div className="image">
                 <img
                     onClick={handleClick}
-                    src={imageUrl !== undefined ? `https://image.tmdb.org/t/p/w500${imageUrl}` : ERROR_IMG}
+                    src={imageUrl === null || imageUrl === undefined ? ERROR_IMG : `https://image.tmdb.org/t/p/w500${imageUrl}`}
                     alt={imageUrl}
                 />
             </div>

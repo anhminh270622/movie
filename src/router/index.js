@@ -16,7 +16,6 @@ export const publicRouter = [
     { path: "/people", component: <People /> },
     { path: "/movie", component: <Movie /> },
     { path: "/tv", component: <Tv /> },
-    { path: "/movie/search/:id", component: <HeaderSearch /> },
-
+    // { path: "/movie/search/:id", component: <HeaderSearch /> },
     { path: "*", component: <NotFound /> }
 ]

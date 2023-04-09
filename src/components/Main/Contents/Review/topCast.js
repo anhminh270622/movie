@@ -20,23 +20,30 @@ function TopCart(props) {
 
     return (<>
         <div className="cast">
-            {topCast && topCast.map((item, index) => {
-                return (
-                    <div
-                        className="card"
-                        key={index}>
-                        <img
-                            src={item.profile_path !== null ? `https://image.tmdb.org/t/p/w500${item.profile_path}` : ERROR_IMG}
-                            alt=""
-                        ></img>
-                        <div className="text">
-                            <p>{item.name}</p>
-                            <p>{item.character}</p>
+            {topCast && topCast.length > 0 ? (
+                topCast.map((item, index) => {
+                    return (
+                        <div className="card" key={index}>
+                            <img
+                                src={
+                                    item.profile_path !== null
+                                        ? `https://image.tmdb.org/t/p/w500${item.profile_path}`
+                                        : ERROR_IMG
+                                }
+                                alt=""
+                            ></img>
+                            <div className="text">
+                                <p>{item.name}</p>
+                                <p>{item.character}</p>
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })
+            ) : (
+                <div>No data Top Billed Cast</div>
+            )}
         </div>
+
     </>);
 }
 

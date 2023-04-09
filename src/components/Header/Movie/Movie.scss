@@ -7,6 +7,7 @@
 		align-items: center;
 		h1 {
 			padding: 5px;
+			font-size: 1.7rem;
 		}
 		.search {
 			display: flex;
@@ -38,18 +39,18 @@
 		}
 	}
 	.movie-wrapper {
-		display: flex;
-		// grid-template-columns: repeat(7, 1fr);
-		// grid-auto-rows: auto;
+		display: grid;
+		// grid-template-columns: repeat(6, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		grid-auto-rows: minmax(100px, auto);
 		gap: 15px; /* khoảng cách giữa các ô */
-		flex-wrap: wrap;
 
 		.movie-item {
 			border-radius: 10px;
 			border: 1px solid #ccc;
 			.action-card {
 				margin: 0;
-				width: 190px;
+				width: 100%;
 				.img-wrapper {
 					img {
 						width: 100%;
@@ -77,6 +78,31 @@
 		}
 		.movie-wrapper {
 			gap: 10px;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-auto-rows: minmax(100px, auto);
+			.movie-item {
+				.action-card {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+@media screen and (min-width: 601px) and (max-width: 991px) {
+	.movie {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.search-wrapper {
+			width: 100%;
+		}
+		.movie-wrapper {
+			display: grid;
+			gap: 10px;
+			grid-template-columns: repeat(4, 1fr);
+			grid-auto-rows: minmax(100px, auto);
+			padding: 0 10px;
 		}
 	}
 }

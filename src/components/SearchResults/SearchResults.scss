@@ -105,3 +105,28 @@
 		}
 	}
 }
+@media only screen and (max-width: 600px) {
+	.SearchResults-wrapper {
+		.SearchResults {
+			.left {
+				width: 75%;
+			}
+			.right {
+				width: 25%;
+
+				.container {
+					border-radius: 10px;
+					.image {
+						width: 100%;
+						img {
+							width: 100%;
+						}
+					}
+					.action {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

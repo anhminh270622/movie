@@ -31,6 +31,7 @@ function Tv() {
                         type: movie.media_type,
                         rating: (movie.vote_average * 10).toFixed(0),
                         background: movie.backdrop_path,
+                        description: movie.overview
                     }
                 })
                 setTv(data)
@@ -53,6 +54,7 @@ function Tv() {
                         type: 'tv',
                         rating: (item.vote_average * 10).toFixed(0),
                         background: item.backdrop_path,
+                        description: item.overview
                     }
                 })
                 setSearch(searchResult)
@@ -89,6 +91,7 @@ function Tv() {
                                 rating={item.rating}
                                 background={item.background}
                                 releaseDate={item.releaseDate}
+                                description={item.description}
                             /></div>
 
                     )
@@ -107,6 +110,8 @@ function Tv() {
                                     rating={item.rating}
                                     background={item.background}
                                     releaseDate={item.releaseDate}
+                                    description={item.description}
+
                                 /></div>
 
                         )

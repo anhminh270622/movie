@@ -30,6 +30,7 @@ function Recommendations(props) {
                             rating: (item.vote_average * 10).toFixed(0),
                             background: item.backdrop_path,
                             backgroundRecommend: 'recommendations',
+                            description: item.overview
                         };
                     });
                     setRecommendations(data);
@@ -59,11 +60,12 @@ function Recommendations(props) {
                                 releaseDate={item.releaseDate}
                                 backgroundRecommend={item.backgroundRecommend}
                                 average={item.average}
+                                description={item.description}
                             />
                         </div>
                     ))
                 ) : (
-                    <div>No data</div>
+                    <div>No data recommendations</div>
                 )}
             </div>
         </>

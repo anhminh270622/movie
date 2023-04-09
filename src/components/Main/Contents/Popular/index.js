@@ -23,6 +23,7 @@ function Popular() {
                         type: movie.media_type,
                         rating: (movie.vote_average * 10).toFixed(0),
                         background: movie.backdrop_path,
+                        description: movie.overview
                     }
                 })
                 setPopular(data)
@@ -53,6 +54,8 @@ function Popular() {
                             releaseDate={movie.releaseDate}
                             rating={movie.rating}
                             background={movie.background}
+                            description={movie.description}
+
                         />
                     </div>
                 ))}
